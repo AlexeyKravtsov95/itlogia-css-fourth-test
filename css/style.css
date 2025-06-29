@@ -1,6 +1,7 @@
 * {
     margin: 0;
     padding: 0;
+    box-sizing: border-box;
 }
 
 @font-face {
@@ -26,6 +27,7 @@ body {
 .layout {
     display: flex;
     min-height: 100vh;
+    position: relative;
 }
 
 .sidebar {
@@ -44,6 +46,12 @@ body {
     padding: 14px;
     font-size: 14px;
     color: #4f4e4f;
+}
+
+.feedback-block a {
+    text-decoration: none;
+    color: #0042eb;
+    font-size: 14px;
 }
 
 .feedback-block img {
@@ -119,10 +127,35 @@ body {
     gap: 40px;
     color: #858796;
     font-size: 14px;
+    position: relative;
 }
+
+.tasks-dropdown-menu {
+    display: none;
+    position: absolute;
+    box-shadow: 0 4px 20px 0 rgba(102, 102, 102, 0.15);
+    background: #fff;
+    border-radius: 10px;
+    padding: 20px 10px;
+    width: 100%;
+    top: 30px;
+    left: 100px;
+    z-index: 1;
+}
+
+.tasks-dropdown-menu-item {
+    font-size: 14px;
+    color: #686464;
+    padding: 10px;
+}
+
 
 .menu-items a:hover {
     color: #3D63D2;
+}
+
+.dropdown-wrapper:hover .tasks-dropdown-menu {
+    display: block;
 }
 
 .tasks-dropdown:hover * {
@@ -162,26 +195,25 @@ body {
     padding: 11px 0;
 }
 
+.search-icon {
+    position: absolute;
+    top: 12px;
+    margin-left: 20px;
+    cursor: pointer;
+}
+
 .header-search input {
     background: transparent;
     border: none;
     font-size: 14px;
     color: #000;
-    padding-left: 50px;
+    margin-left: 40px;
     outline: none;
     width: 333px;
 }
 
 .header-search input::placeholder {
     color: #b3b3b3;
-}
-
-.search-icon {
-    position: absolute;
-    top: 14px;
-    left: 6px;
-    padding-left: 20px;
-    cursor: pointer;
 }
 
 .button-upload {
@@ -200,9 +232,8 @@ body {
 }
 
 .container {
-    padding: 20px;
+    padding: 20px 0 73px 0;
     background-color: #EDEEF3;
-    position: relative;
 }
 
 .technical {
@@ -217,9 +248,10 @@ body {
     border-radius: 10px 10px 0 0;
     padding: 10px;
     width: 186px;
-    position: absolute;
+    position: fixed;
     top: 50%;
-    right: 0;
+    right: -82px;
+    z-index: 1;
 }
 
 .technical .technical-icon {
@@ -229,6 +261,7 @@ body {
 
 .technical:hover {
     background-color: #2F54A3;
+    padding: 10px 10px 20px 10px;
 }
 
 
@@ -289,6 +322,7 @@ body {
     display: flex;
     align-items: center;
     justify-content: space-between;
+    cursor: pointer;
 }
 
 .block-actions svg:hover path, .block-actions svg:hover ellipse {
